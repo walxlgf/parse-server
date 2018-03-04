@@ -9,6 +9,9 @@ ENV PORT 1337
 
 ADD ./package.json ${PARSE_HOME}
 ENV CLOUD_CODE_HOME ${PARSE_HOME}/cloud
+
+RUN mkdir -p ${CLOUD_CODE_HOME}
+
 ADD ./cloud $CLOUD_CODE_HOME/
 
 WORKDIR ${PARSE_HOME}
