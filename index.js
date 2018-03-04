@@ -4,13 +4,14 @@ const app = express();
 
 const {
   APP_ID,
-  MASTER_KEY
+  MASTER_KEY,
+  DATABASE_URI
 } = process.env;
 
 const api = new ParseServer({
   appName: 'Timer',
   // databaseURI: 'mongodb://mongo-parse-server/', // Connection string for your MongoDB database
-  databaseURI: 'mongodb://mongo-parse-server:27017/timer', 
+  databaseURI: DATABASE_URI,//'mongodb://mongo-parse-server:27017/timer', 
   cloud: __dirname + '/cloud/main.js', // Absolute path to your Cloud Code
   appId: APP_ID,
   masterKey: MASTER_KEY,
