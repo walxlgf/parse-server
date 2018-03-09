@@ -5,7 +5,10 @@ const app = express();
 const {
   APP_ID,
   MASTER_KEY,
-  DATABASE_URI
+  DATABASE_URI,
+  READ_ONLY_MASTER_KEY,
+  REST_API_KEY,
+  CLIENT_KEY
 } = process.env;
 
 const api = new ParseServer({
@@ -15,10 +18,12 @@ const api = new ParseServer({
   cloud: __dirname + '/cloud/main.js', // Absolute path to your Cloud Code
   appId: APP_ID,
   masterKey: MASTER_KEY,
-  fileKey: 'optionalFileKey',
+  readOnlyMasterKey: READ_ONLY_MASTER_KEY,
+  restAPIKey: REST_API_KEY,
+  clientKey: CLIENT_KEY,
   serverURL: 'http://localhost:1337/parse', // Don't forget to change to https if needed
   liveQuery: {
-    classNames: ['Game','Device', 'Pin']
+    classNames: ['Game', 'Device', 'Pin']
   },
   // push: {
   //   android: {
