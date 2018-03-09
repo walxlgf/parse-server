@@ -18,9 +18,9 @@ const api = new ParseServer({
   cloud: __dirname + '/cloud/main.js', // Absolute path to your Cloud Code
   appId: APP_ID,
   masterKey: MASTER_KEY,
-  readOnlyMasterKey: READ_ONLY_MASTER_KEY,
-  restAPIKey: REST_API_KEY,
-  clientKey: CLIENT_KEY,
+  // readOnlyMasterKey: READ_ONLY_MASTER_KEY,
+  // restAPIKey: REST_API_KEY,
+  // clientKey: CLIENT_KEY,
   serverURL: 'http://localhost:1337/parse', // Don't forget to change to https if needed
   liveQuery: {
     classNames: ['Game', 'Device', 'Pin']
