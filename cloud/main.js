@@ -2,7 +2,7 @@ Parse.Cloud.define('hello', (req, res) => {
   res.succes('hello!');
 });
 
-Parse.Cloud.define('wechatlogin', (req, res) => {
+Parse.Cloud.define('wechatLogin', (req, res) => {
   var code = req.params.code;
   //获取openId 
   Parse.Cloud.httpRequest({
@@ -17,12 +17,13 @@ Parse.Cloud.define('wechatlogin', (req, res) => {
       grant_type: 'authorization_code',
     }
   }).then(function (httpResponse) {
+    res.success(httpResponse);
     console.log(httpResponse.text);
   }, function (httpResponse) {
+    res.error(httpResponse);
     console.error('Request failed with response code ' + httpResponse.status);
   });
 
-  res.succes('hello!');
 });
 
 
