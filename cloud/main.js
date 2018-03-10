@@ -1,8 +1,10 @@
 Parse.Cloud.define('hello', (req, res) => {
+  Parse.Cloud.useMasterKey();
   res.succes('hello!');
 });
 
 Parse.Cloud.define('wechatLogin', (req, res) => {
+  Parse.Cloud.useMasterKey();
   var code = req.params.code;
   //获取openId 
   Parse.Cloud.httpRequest({
