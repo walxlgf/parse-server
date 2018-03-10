@@ -7,7 +7,6 @@ Parse.Cloud.define('wechatLogin', (req, res) => {
   var code = req.params.code;
   //获取openId 
   Parse.Cloud.httpRequest({
-    useMasterKey:true,
     url: 'https://api.weixin.qq.com/sns/jscode2session',
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
@@ -18,13 +17,13 @@ Parse.Cloud.define('wechatLogin', (req, res) => {
       js_code: code,
       grant_type: 'authorization_code',
     }
-  }).then(function (httpResponse) {
-    res.success(httpResponse);
-    console.log(httpResponse.text);
-  }, function (httpResponse) {
-    res.error(httpResponse);
-    console.error('Request failed with response code ' + httpResponse.status);
-  });
+  }, {useMasterKey: true}).then(function (httpResponse) {
+      res.success(httpResponse);
+      console.log(httpResponse.text);
+    }, function (httpResponse) {
+      res.error(httpResponse);
+      console.error('Request failed with response code ' + httpResponse.status);
+    });
 
 });
 
