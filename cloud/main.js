@@ -1,5 +1,4 @@
 Parse.Cloud.define('hello', (req, res) => {
-  Parse.Cloud.useMasterKey();
   res.succes('hello!');
 });
 
@@ -8,6 +7,7 @@ Parse.Cloud.define('wechatLogin', (req, res) => {
   var code = req.params.code;
   //获取openId 
   Parse.Cloud.httpRequest({
+    useMasterKey:true,
     url: 'https://api.weixin.qq.com/sns/jscode2session',
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
